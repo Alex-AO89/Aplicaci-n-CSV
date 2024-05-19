@@ -6,6 +6,7 @@ function parseCSV(csvData){
         const tr = document.createElement('tr');
         colums.forEach(column=>{
             const td = document.createElement('td');
+            td.addEventListener('click', () => EliminarFila(tr));
             td.textContent=column;
             tr.appendChild(td);
         });
@@ -52,6 +53,13 @@ function InsertarDatos() {
         document.getElementById('edad').value = '';
     } else {
         alert('Por favor, complete todos los campos.');
+    }
+}
+
+function EliminarFila(row) {
+    if (confirm('¿Estás seguro de que deseas eliminar esta fila?')) {
+        row.remove();
+        updateCSV();
     }
 }
 
