@@ -21,3 +21,21 @@ body{
 .btn:hover{
     background-color: #8b10a3;
 }
+
+.fondoM{
+    background-image: url(imagenes/fondomorado.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.form-container {
+    display: grid;
+    gap: 10px; 
+}
+
+.flex-container img {
+    margin-right: 10px;
+}

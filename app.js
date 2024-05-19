@@ -30,15 +30,26 @@ document.querySelector('input[type="file"]').addEventListener('change',function(
 });
 
 function InsertarDatos() {
+    const Fecha = document.getElementById('fecha').value;
+    let Cantidad = document.getElementById('cantidad').value;
+    let Tasa = document.getElementById('tasa').value;
     const Nombre = document.getElementById('nombre').value;
-    const Correo = document.getElementById('correo').value;
-    const Edad = document.getElementById('edad').value;
+    const Plazo = document.getElementById('plazo').value;
 
-    if (Nombre && Correo && Edad) {
+    // Agregar símbolo de pesos ($) a la cantidad si no está presente
+    if (!Cantidad.startsWith('$')) {
+        Cantidad = '$' + Cantidad;
+    }
+    // Agregar símbolo de porcentaje (%) a la tasa si no está presente
+    if (!Tasa.startsWith('%')) {
+        Tasa = Tasa + '%' ;
+    }
+
+    if (Fecha && Cantidad && Tasa && Nombre && Plazo) {
         const tableBody = document.querySelector('#csvTable tbody');
         const tr = document.createElement('tr');
         
-        [Nombre, Correo, Edad].forEach(text => {
+        [Fecha, Cantidad, Tasa, Nombre, Plazo].forEach(text => {
             const td = document.createElement('td');
             td.textContent = text;
             tr.appendChild(td);
@@ -48,9 +59,11 @@ function InsertarDatos() {
         
         updateCSV();
         
+        document.getElementById('fecha').value = '';
+        document.getElementById('cantidad').value = ''; // Reiniciar el campo cantidad a $
+        document.getElementById('tasa').value = '';
         document.getElementById('nombre').value = '';
-        document.getElementById('correo').value = '';
-        document.getElementById('edad').value = '';
+        document.getElementById('plazo').value = '';
     } else {
         alert('Por favor, complete todos los campos.');
     }
