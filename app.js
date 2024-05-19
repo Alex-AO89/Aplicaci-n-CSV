@@ -6,7 +6,7 @@ function parseCSV(csvData){
         const tr = document.createElement('tr');
         colums.forEach(column=>{
             const td = document.createElement('td');
-            td.addEventListener('click', () => EliminarFila(tr));
+            td.addEventListener('click', () => EliminarFila(tr)); // agrega un evento con un clik para cada fila
             td.textContent=column;
             tr.appendChild(td);
         });
@@ -28,7 +28,7 @@ document.querySelector('input[type="file"]').addEventListener('change',function(
     readCSV(file);
 
 });
-
+//inserta nuevs datos 
 function InsertarDatos() {
     const Fecha = document.getElementById('fecha').value;
     let Cantidad = document.getElementById('cantidad').value;
@@ -60,7 +60,7 @@ function InsertarDatos() {
         updateCSV();
         
         document.getElementById('fecha').value = '';
-        document.getElementById('cantidad').value = ''; // Reiniciar el campo cantidad a $
+        document.getElementById('cantidad').value = ''; 
         document.getElementById('tasa').value = '';
         document.getElementById('nombre').value = '';
         document.getElementById('plazo').value = '';
@@ -68,7 +68,7 @@ function InsertarDatos() {
         alert('Por favor, complete todos los campos.');
     }
 }
-
+//confirma si deseas borrar una fila
 function EliminarFila(row) {
     if (confirm('¿Estás seguro de que deseas eliminar esta fila?')) {
         row.remove();
@@ -107,11 +107,10 @@ function descargarCSV() {
         document.body.removeChild(link);
     }
 }
-
+// Borra toda la tabla
 function BorrarTodo() {
     if (confirm('¿Estás seguro de que deseas borrar todos los datos?')) {
         const tableBody = document.querySelector('#csvTable tbody');
         tableBody.innerHTML = '';
-
     }
 }
