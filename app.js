@@ -62,11 +62,43 @@ function EliminarFila(row) {
         updateCSV();
     }
 }
+function descargarCSV() {
+    if (confirm('¿Estás seguro de que deseas descargar un nuevo csv?')) {
+        // Obtener todos los datos de la tabla
+        const table = document.getElementById('csvTable');
+        const rows = table.querySelectorAll('tbody tr');
+        
+        // Crear una cadena para almacenar el contenido CSV
+        let csvContent = 'Nombre,Correo,Edad\n';
+
+        // Recorrer todas las filas de la tabla
+        rows.forEach(row => {
+            // Obtener los datos de cada celda en la fila
+            const cells = row.querySelectorAll('td');
+            const rowData = Array.from(cells).map(cell => cell.textContent).join(',');     
+            // Agregar los datos de la fila a la cadena CSV
+            csvContent += rowData + '\n';
+        });
+        // Crear un objeto Blob con el contenido CSV
+        const blob = new Blob([csvContent], { type: 'text/csv' });
+        // Crear un enlace temporal para descargar el archivo CSV
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute('download', 'Nuevosdatos.csv');
+        link.style.display = 'none';
+        // Agregar el enlace al cuerpo del documento
+        document.body.appendChild(link);
+        // Simular un clic en el enlace para iniciar la descarga
+        link.click();
+        // Limpiar y liberar el enlace
+        document.body.removeChild(link);
+    }
+}
 
 function BorrarTodo() {
     if (confirm('¿Estás seguro de que deseas borrar todos los datos?')) {
         const tableBody = document.querySelector('#csvTable tbody');
         tableBody.innerHTML = '';
-        updateCSV();
+
     }
 }
