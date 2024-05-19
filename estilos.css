@@ -1,0 +1,19 @@
+table{
+    width:100%;
+    border-collapse: collapse;
+}
+
+th,td{
+    border: 1px solid whitesmoke;
+    text-align: left;
+    padding: 10px;
+}
+
+th{
+    background-color: aqua;
+}
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(115, 95, 129) 0%, rgba(101,101,231,1) 29%, rgba(0,255,222,1) 79%);
+}
