@@ -17,3 +17,7 @@ body{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgb(115, 95, 129) 0%, rgba(101,101,231,1) 29%, rgba(0,255,222,1) 79%);
 }
+
+.btn:hover{
+    background-color: #8b10a3;
+}
