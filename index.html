@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>CSV Data</h2>
-    <p>Haz clic en una celda para eliminarla.</p>
+    <p>Haz clic en una fila para eliminarla.</p>
     <div>
         <input type="text" id="nombre" placeholder="Nombre">
         <input type="email" id="correo" placeholder="Correo">
@@ -30,6 +30,9 @@
     <input type="file" accept=".csv">
     <div>
         <button class="btn" onclick="BorrarTodo()">Borrar todos los datos datos</button>
+    </div>
+    <div>
+        <button onclick="descargarCSV()">Descargar CSV</button>
     </div>
 </body>
 <script src="app.js"></script>
