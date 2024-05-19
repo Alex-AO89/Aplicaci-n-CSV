@@ -27,4 +27,38 @@ document.querySelector('input[type="file"]').addEventListener('change',function(
     readCSV(file);
 
 });
-    
+
+function InsertarDatos() {
+    const Nombre = document.getElementById('nombre').value;
+    const Correo = document.getElementById('correo').value;
+    const Edad = document.getElementById('edad').value;
+
+    if (Nombre && Correo && Edad) {
+        const tableBody = document.querySelector('#csvTable tbody');
+        const tr = document.createElement('tr');
+        
+        [Nombre, Correo, Edad].forEach(text => {
+            const td = document.createElement('td');
+            td.textContent = text;
+            tr.appendChild(td);
+        });
+        
+        tableBody.appendChild(tr);
+        
+        updateCSV();
+        
+        document.getElementById('nombre').value = '';
+        document.getElementById('correo').value = '';
+        document.getElementById('edad').value = '';
+    } else {
+        alert('Por favor, complete todos los campos.');
+    }
+}
+
+function BorrarTodo() {
+    if (confirm('¿Estás seguro de que deseas borrar todos los datos?')) {
+        const tableBody = document.querySelector('#csvTable tbody');
+        tableBody.innerHTML = '';
+        updateCSV();
+    }
+}

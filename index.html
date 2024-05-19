@@ -8,6 +8,12 @@
 </head>
 <body>
     <h2>CSV Data</h2>
+    <div>
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="email" id="correo" placeholder="Correo">
+        <input type="number" id="edad" placeholder="Edad">
+        <button class="btn" onclick="InsertarDatos()">Agregar nuevo dato</button>
+    </div>
     <table id="csvTable">
         <thead>
             <tr>
@@ -22,8 +28,7 @@
     </table>
     <input type="file" accept=".csv">
     <div>
-        <button class="btn" onclick="redirigir()">Agregar nuevo dato</button>
-        <button class="btn" onclick="redirigir()">Borrar datos</button>
+        <button class="btn" onclick="BorrarTodo()">Borrar todos los datos datos</button>
     </div>
 </body>
 <script src="app.js"></script>
