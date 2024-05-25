@@ -7,7 +7,7 @@ function parseCSV(csvData){
         colums.forEach(column=>{
             const td = document.createElement('td');
             td.addEventListener('click', () => EliminarFila(tr)); // agrega un evento con un clik para cada fila
-            td.textContent=column;
+            td.textContent = column.trim();
             tr.appendChild(td);
         });
         tableBody.appendChild(tr);
